@@ -150,25 +150,38 @@ export default function RoadmapPage() {
             <CardTitle className="text-base font-extrabold">Resource Estimate</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[520px] text-sm">
-                <thead>
-                  <tr className="text-left text-[hsl(var(--muted-foreground))]">
-                    <th className="py-2 pr-3">Role</th>
-                    <th className="py-2 pr-3">Type</th>
-                    <th className="py-2 pr-3">Duration</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {resources.map((r) => (
-                    <tr key={r[0]} className="border-t border-[hsl(var(--border))]">
-                      <td className="py-3 pr-3 font-semibold">{r[0]}</td>
-                      <td className="py-3 pr-3">{r[1]}</td>
-                      <td className="py-3 pr-3">{r[2]}</td>
+            <div>
+              <div className="hidden overflow-x-auto md:block">
+                <table className="w-full min-w-[520px] text-sm">
+                  <thead>
+                    <tr className="text-left text-[hsl(var(--muted-foreground))]">
+                      <th className="py-2 pr-3">Role</th>
+                      <th className="py-2 pr-3">Type</th>
+                      <th className="py-2 pr-3">Duration</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {resources.map((r) => (
+                      <tr key={r[0]} className="border-t border-[hsl(var(--border))]">
+                        <td className="py-3 pr-3 font-semibold">{r[0]}</td>
+                        <td className="py-3 pr-3">{r[1]}</td>
+                        <td className="py-3 pr-3">{r[2]}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="grid grid-cols-1 gap-2 md:hidden">
+                {resources.map((r) => (
+                  <div key={r[0]} className="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--muted))/0.1] p-3 text-sm">
+                    <div className="font-bold text-[#003087] dark:text-[#7fb6ff]">{r[0]}</div>
+                    <div className="mt-1 flex justify-between text-xs">
+                      <span>{r[1]}</span>
+                      <span className="font-medium">{r[2]}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -178,23 +191,33 @@ export default function RoadmapPage() {
             <CardTitle className="text-base font-extrabold">Budget Breakdown</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[520px] text-sm">
-                <thead>
-                  <tr className="text-left text-[hsl(var(--muted-foreground))]">
-                    <th className="py-2 pr-3">Item</th>
-                    <th className="py-2 pr-3">Estimated Cost</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {budget.map((b) => (
-                    <tr key={b[0]} className="border-t border-[hsl(var(--border))]">
-                      <td className="py-3 pr-3 font-semibold">{b[0]}</td>
-                      <td className="py-3 pr-3">{b[1]}</td>
+            <div>
+              <div className="hidden overflow-x-auto md:block">
+                <table className="w-full min-w-[520px] text-sm">
+                  <thead>
+                    <tr className="text-left text-[hsl(var(--muted-foreground))]">
+                      <th className="py-2 pr-3">Item</th>
+                      <th className="py-2 pr-3">Estimated Cost</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {budget.map((b) => (
+                      <tr key={b[0]} className="border-t border-[hsl(var(--border))]">
+                        <td className="py-3 pr-3 font-semibold">{b[0]}</td>
+                        <td className="py-3 pr-3">{b[1]}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="grid grid-cols-1 gap-2 md:hidden">
+                {budget.map((b) => (
+                  <div key={b[0]} className="flex items-center justify-between rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--muted))/0.1] p-3 text-sm">
+                    <div className="font-semibold text-[#003087] dark:text-[#7fb6ff]">{b[0]}</div>
+                    <div className="font-bold">{b[1]}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </CardContent>
         </Card>

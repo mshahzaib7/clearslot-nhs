@@ -165,25 +165,39 @@ export default function CompliancePage() {
             <CardTitle className="text-base font-extrabold">Data Retention</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[520px] text-sm">
-                <thead>
-                  <tr className="text-left text-[hsl(var(--muted-foreground))]">
-                    <th className="py-2 pr-3">Data Type</th>
-                    <th className="py-2 pr-3">Retention Period</th>
-                    <th className="py-2 pr-3">Justification</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {retention.map((r) => (
-                    <tr key={r[0]} className="border-t border-[hsl(var(--border))]">
-                      <td className="py-3 pr-3 font-semibold">{r[0]}</td>
-                      <td className="py-3 pr-3">{r[1]}</td>
-                      <td className="py-3 pr-3 text-[hsl(var(--muted-foreground))]">{r[2]}</td>
+            <div>
+              <div className="hidden overflow-x-auto md:block">
+                <table className="w-full min-w-[520px] text-sm">
+                  <thead>
+                    <tr className="text-left text-[hsl(var(--muted-foreground))]">
+                      <th className="py-2 pr-3">Data Type</th>
+                      <th className="py-2 pr-3">Retention Period</th>
+                      <th className="py-2 pr-3">Justification</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {retention.map((r) => (
+                      <tr key={r[0]} className="border-t border-[hsl(var(--border))]">
+                        <td className="py-3 pr-3 font-semibold">{r[0]}</td>
+                        <td className="py-3 pr-3">{r[1]}</td>
+                        <td className="py-3 pr-3 text-[hsl(var(--muted-foreground))]">{r[2]}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="grid grid-cols-1 gap-3 md:hidden">
+                {retention.map((r) => (
+                  <div key={r[0]} className="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--muted))/0.1] p-3 text-sm">
+                    <div className="font-bold text-[#003087] dark:text-[#7fb6ff]">{r[0]}</div>
+                    <div className="mt-1 flex justify-between">
+                      <span className="text-[hsl(var(--muted-foreground))]">Retention:</span>
+                      <span>{r[1]}</span>
+                    </div>
+                    <div className="mt-1 text-xs italic text-[hsl(var(--muted-foreground))]">{r[2]}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -241,27 +255,49 @@ export default function CompliancePage() {
             <CardTitle className="text-base font-extrabold">Key Risks and Mitigations</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[720px] text-sm">
-                <thead>
-                  <tr className="text-left text-[hsl(var(--muted-foreground))]">
-                    <th className="py-2 pr-3">Risk</th>
-                    <th className="py-2 pr-3">Likelihood</th>
-                    <th className="py-2 pr-3">Impact</th>
-                    <th className="py-2 pr-3">Mitigation</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {risks.map((r) => (
-                    <tr key={r[0]} className="border-t border-[hsl(var(--border))]">
-                      <td className="py-3 pr-3 font-semibold">{r[0]}</td>
-                      <td className="py-3 pr-3">{riskBadge(r[1])}</td>
-                      <td className="py-3 pr-3">{riskBadge(r[2])}</td>
-                      <td className="py-3 pr-3 text-[hsl(var(--muted-foreground))]">{r[3]}</td>
+            <div>
+              <div className="hidden overflow-x-auto md:block">
+                <table className="w-full min-w-[720px] text-sm">
+                  <thead>
+                    <tr className="text-left text-[hsl(var(--muted-foreground))]">
+                      <th className="py-2 pr-3">Risk</th>
+                      <th className="py-2 pr-3">Likelihood</th>
+                      <th className="py-2 pr-3">Impact</th>
+                      <th className="py-2 pr-3">Mitigation</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {risks.map((r) => (
+                      <tr key={r[0]} className="border-t border-[hsl(var(--border))]">
+                        <td className="py-3 pr-3 font-semibold">{r[0]}</td>
+                        <td className="py-3 pr-3">{riskBadge(r[1])}</td>
+                        <td className="py-3 pr-3">{riskBadge(r[2])}</td>
+                        <td className="py-3 pr-3 text-[hsl(var(--muted-foreground))]">{r[3]}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="grid grid-cols-1 gap-4 md:hidden">
+                {risks.map((r) => (
+                  <div key={r[0]} className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--muted))/0.1] p-4 text-sm">
+                    <div className="font-bold text-[#003087] dark:text-[#7fb6ff]">{r[0]}</div>
+                    <div className="mt-3 flex items-center gap-4">
+                      <div className="flex flex-col">
+                        <span className="text-[10px] uppercase tracking-wider text-[hsl(var(--muted-foreground))]">Likelihood</span>
+                        {riskBadge(r[1])}
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[10px] uppercase tracking-wider text-[hsl(var(--muted-foreground))]">Impact</span>
+                        {riskBadge(r[2])}
+                      </div>
+                    </div>
+                    <div className="mt-3 rounded-lg bg-white/50 p-2 text-xs dark:bg-black/20">
+                      <span className="font-semibold">Mitigation:</span> {r[3]}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </CardContent>
         </Card>

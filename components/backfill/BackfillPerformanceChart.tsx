@@ -40,6 +40,7 @@ export function BackfillPerformanceChart({ data }: { data: BackfillWeek[] }) {
           />
           <Legend />
           <Bar dataKey="recovered" name="Recovered" fill="#007F3B" radius={[6, 6, 0, 0]}>
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             <LabelList dataKey="rate" position="top" formatter={(v: any) => `${v}%`} style={{ fontSize: '10px', fontWeight: 'bold', fill: 'currentColor', opacity: 0.8 }} />
           </Bar>
           <Bar dataKey="lost" name="Lost" fill="#DA291C" radius={[6, 6, 0, 0]} />

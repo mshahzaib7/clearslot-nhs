@@ -5,6 +5,7 @@ import * as React from "react";
 import { BackfillStatus } from "@/components/backfill/BackfillStatus";
 import { SlotTable } from "@/components/backfill/SlotTable";
 import { BackfillPerformanceChart, type BackfillWeek } from "@/components/backfill/BackfillPerformanceChart";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ErrorCard } from "@/components/ui/error-card";
@@ -131,31 +132,65 @@ export default function BackfillClient() {
 
 function ReserveTable({ rows }: { rows: ReservePatient[] }) {
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full min-w-[780px] text-sm">
-        <thead>
-          <tr className="text-left text-[hsl(var(--muted-foreground))]">
-            <th className="py-2 pr-3">Patient Ref</th>
-            <th className="py-2 pr-3">Specialty</th>
-            <th className="py-2 pr-3">Waiting Since</th>
-            <th className="py-2 pr-3">Max Travel</th>
-            <th className="py-2 pr-3">Preferred Times</th>
-            <th className="py-2 pr-3">Priority</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((r) => (
-            <tr key={r.id} className="border-t border-[hsl(var(--border))]">
-              <td className="py-3 pr-3 font-semibold">{r.patientRef}</td>
-              <td className="py-3 pr-3">{r.specialty}</td>
-              <td className="py-3 pr-3">{r.waitingSinceDays} days</td>
-              <td className="py-3 pr-3">{r.maxTravel}</td>
-              <td className="py-3 pr-3">{r.preferredTimes}</td>
-              <td className="py-3 pr-3 font-semibold">{r.priority}</td>
+    <div>
+      {/* Desktop Table View */}
+      <div className="hidden overflow-x-auto md:block">
+        <table className="w-full min-w-[780px] text-sm">
+          <thead>
+            <tr className="text-left text-[hsl(var(--muted-foreground))]">
+              <th className="py-2 pr-3">Patient Ref</th>
+              <th className="py-2 pr-3">Specialty</th>
+              <th className="py-2 pr-3">Waiting Since</th>
+              <th className="py-2 pr-3">Max Travel</th>
+              <th className="py-2 pr-3">Preferred Times</th>
+              <th className="py-2 pr-3">Priority</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr key={r.id} className="border-t border-[hsl(var(--border))]">
+                <td className="py-3 pr-3 font-semibold">{r.patientRef}</td>
+                <td className="py-3 pr-3">{r.specialty}</td>
+                <td className="py-3 pr-3">{r.waitingSinceDays} days</td>
+                <td className="py-3 pr-3">{r.maxTravel}</td>
+                <td className="py-3 pr-3">{r.preferredTimes}</td>
+                <td className="py-3 pr-3 font-semibold">{r.priority}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Mobile Card View */}
+      <div className="grid grid-cols-1 gap-4 md:hidden">
+        {rows.map((r) => (
+          <div key={r.id} className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--muted))/0.1] p-4 text-sm">
+            <div className="flex items-center justify-between">
+              <div className="font-bold text-[#003087] dark:text-[#7fb6ff]">{r.patientRef}</div>
+              <Badge variant={r.priority === "Clinical Priority" ? "danger" : "default"}>{r.priority}</Badge>
+            </div>
+            <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
+              <div>
+                <span className="text-[hsl(var(--muted-foreground))]">Specialty:</span>
+                <div className="font-medium">{r.specialty}</div>
+              </div>
+              <div>
+                <span className="text-[hsl(var(--muted-foreground))]">Waiting:</span>
+                <div className="font-medium">{r.waitingSinceDays} days</div>
+              </div>
+              <div>
+                <span className="text-[hsl(var(--muted-foreground))]">Travel:</span>
+                <div className="font-medium">{r.maxTravel}</div>
+              </div>
+              <div>
+                <span className="text-[hsl(var(--muted-foreground))]">Times:</span>
+                <div className="font-medium">{r.preferredTimes}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
       <div className="mt-3 text-xs text-[hsl(var(--muted-foreground))]">
         Patients shown are synthetic references for demonstration.
       </div>

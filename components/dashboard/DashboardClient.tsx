@@ -229,43 +229,75 @@ export default function DashboardClient() {
               <Skeleton className="h-8 w-full" />
             </div>
           ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[860px] text-sm">
-                <thead>
-                  <tr className="text-left text-[hsl(var(--muted-foreground))]">
-                    <th className="py-2 pr-3">Time</th>
-                    <th className="py-2 pr-3">Patient Ref</th>
-                    <th className="py-2 pr-3">Specialty</th>
-                    <th className="py-2 pr-3">Risk Score</th>
-                    <th className="py-2 pr-3">Risk Factors</th>
-                    <th className="py-2 pr-3">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {appointments.map((a) => (
-                    <tr key={a.id} className="border-t border-[hsl(var(--border))]">
-                      <td className="py-3 pr-3 font-semibold">{a.time}</td>
-                      <td className="py-3 pr-3">{a.patientRef}</td>
-                      <td className="py-3 pr-3">{a.specialty}</td>
-                      <td className="py-3 pr-3">
-                        <Badge variant={riskBadgeVariant(a.riskScore)}>{a.riskScore}</Badge>
-                      </td>
-                      <td className="py-3 pr-3 text-[hsl(var(--muted-foreground))]">
-                        {a.riskFactors.join(", ")}
-                      </td>
-                      <td className="py-3 pr-3">
-                        <Button
-                          variant={a.riskScore >= 80 ? "destructive" : "default"}
-                          size="sm"
-                          aria-label={`Contact now for ${a.patientRef}`}
-                        >
-                          Contact Now
-                        </Button>
-                      </td>
+            <div className="relative">
+              {/* Desktop Table View */}
+              <div className="hidden overflow-x-auto md:block">
+                <table className="w-full min-w-[860px] text-sm">
+                  <thead>
+                    <tr className="text-left text-[hsl(var(--muted-foreground))]">
+                      <th className="py-2 pr-3">Time</th>
+                      <th className="py-2 pr-3">Patient Ref</th>
+                      <th className="py-2 pr-3">Specialty</th>
+                      <th className="py-2 pr-3">Risk Score</th>
+                      <th className="py-2 pr-3">Risk Factors</th>
+                      <th className="py-2 pr-3">Action</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {appointments.map((a) => (
+                      <tr key={a.id} className="border-t border-[hsl(var(--border))]">
+                        <td className="py-3 pr-3 font-semibold">{a.time}</td>
+                        <td className="py-3 pr-3">{a.patientRef}</td>
+                        <td className="py-3 pr-3">{a.specialty}</td>
+                        <td className="py-3 pr-3">
+                          <Badge variant={riskBadgeVariant(a.riskScore)}>{a.riskScore}</Badge>
+                        </td>
+                        <td className="py-3 pr-3 text-[hsl(var(--muted-foreground))]">
+                          {a.riskFactors.join(", ")}
+                        </td>
+                        <td className="py-3 pr-3">
+                          <Button
+                            variant={a.riskScore >= 80 ? "destructive" : "default"}
+                            size="sm"
+                            aria-label={`Contact now for ${a.patientRef}`}
+                          >
+                            Contact Now
+                          </Button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Mobile Card View */}
+              <div className="grid grid-cols-1 gap-4 md:hidden">
+                {appointments.map((a) => (
+                  <div key={a.id} className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--muted))/0.1] p-4">
+                    <div className="flex items-center justify-between">
+                      <div className="text-sm font-bold">{a.time}</div>
+                      <Badge variant={riskBadgeVariant(a.riskScore)}>Score: {a.riskScore}</Badge>
+                    </div>
+                    <div className="mt-2 text-xs text-[hsl(var(--muted-foreground))]">
+                      <span className="font-semibold text-foreground">{a.patientRef}</span> · {a.specialty}
+                    </div>
+                    <div className="mt-2 flex flex-wrap gap-1">
+                      {a.riskFactors.map(f => (
+                        <span key={f} className="rounded bg-white/50 px-1.5 py-0.5 text-[10px] dark:bg-black/50">{f}</span>
+                      ))}
+                    </div>
+                    <Button
+                      variant={a.riskScore >= 80 ? "destructive" : "default"}
+                      size="sm"
+                      className="mt-4 w-full"
+                      aria-label={`Contact now for ${a.patientRef}`}
+                    >
+                      Contact Now
+                    </Button>
+                  </div>
+                ))}
+              </div>
+
               <div className="mt-4 flex items-center justify-between">
                 <div className="text-xs text-[hsl(var(--muted-foreground))]">
                   Page 1 of 3

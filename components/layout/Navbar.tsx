@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
-import { Menu, Moon, Sun } from "lucide-react";
+
+import { Menu } from "lucide-react";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
@@ -19,7 +19,7 @@ const navLinks = [
 
 export function Navbar() {
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const isActive = (href: string) =>
@@ -88,37 +88,37 @@ export function Navbar() {
         </div>
       </div>
 
-      {mobileOpen && (
-        <div className="absolute left-0 right-0 top-12 border-b border-[hsl(var(--border))] bg-white/95 backdrop-blur-xl dark:bg-[#0f131a]/95 md:hidden animate-in fade-in slide-in-from-top-2 duration-200">
-          <div className="flex flex-col p-4 gap-1">
-            {navLinks.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={() => setMobileOpen(false)}
-                className={cn(
-                  "flex items-center h-11 px-4 rounded-xl text-sm font-bold transition-all",
-                  isActive(l.href) 
-                    ? "bg-[#003087] text-white" 
-                    : "text-[hsl(var(--foreground))] hover:bg-[hsl(var(--muted))]"
-                )}
-                aria-label={l.label}
+      {mobileOpen ? (
+        <div className="border-t border-[hsl(var(--border))] bg-white dark:bg-[#0f131a] md:hidden">
+          <div className="mx-auto max-w-6xl px-4 py-3">
+            <div className="flex flex-col gap-2">
+              {navLinks.map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    "rounded-md px-3 py-2 text-sm font-semibold hover:bg-[hsl(var(--muted))]",
+                    isActive(l.href) && "bg-[hsl(var(--muted))] text-[#005EB8] dark:text-[#7fb6ff]",
+                  )}
+                  aria-label={l.label}
+                >
+                  {l.label}
+                </Link>
+              ))}
+              <a
+                href="https://github.com/mshahzaib7/clearslot-nhs"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-md px-3 py-2 text-sm font-semibold hover:bg-[hsl(var(--muted))]"
+                aria-label="GitHub repository"
               >
-                {l.label}
-              </Link>
-            ))}
-            <div className="my-2 h-px bg-[hsl(var(--border))]" />
-            <a
-              href="https://github.com/mshahzaib7/clearslot-nhs"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center h-11 px-4 rounded-xl text-sm font-bold text-[hsl(var(--foreground))] hover:bg-[hsl(var(--muted))] transition-all"
-            >
-              GitHub Repository
-            </a>
+                GitHub
+              </a>
+            </div>
           </div>
         </div>
-      )}
+      ) : null}
     </header>
   );
 }

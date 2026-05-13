@@ -20,100 +20,99 @@ export default function Home() {
         <div className="absolute bottom-[-10%] right-[-5%] h-[700px] w-[700px] rounded-full bg-[#41B6E6] opacity-20 blur-[150px] animate-float-slow" style={{ animationDelay: '-5s' }} />
 
         <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-12 lg:grid-cols-2 lg:gap-12 lg:py-20">
-          <div className="flex flex-col justify-center animate-fade-in-up text-center lg:text-left" style={{ animationDelay: '100ms' }}>
-            <div className="flex items-center justify-center lg:justify-start gap-3 sm:gap-4">
-              <div className="flex h-9 sm:h-10 w-20 sm:w-24 items-center justify-center rounded-xl bg-white p-2 shadow-lg shadow-black/20">
+          <div className="flex flex-col justify-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+            <div className="flex items-center gap-4">
+              <div className="flex h-10 w-24 items-center justify-center rounded-xl bg-white p-2 shadow-lg shadow-black/20">
                 <Image
                   src="/nhs-logo-placeholder.svg"
                   alt="NHS logo placeholder"
                   width={80}
                   height={28}
-                  className="w-full h-auto"
                   priority
                 />
               </div>
-              <span className="rounded-full bg-white/10 px-3 sm:px-4 py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] backdrop-blur-md border border-white/10 whitespace-nowrap">
+              <span className="rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] backdrop-blur-md border border-white/10">
                 AI Precision Platform
               </span>
             </div>
 
-            <h1 className="mt-6 text-4xl font-black tracking-tight sm:text-5xl lg:text-7xl leading-[0.95] sm:leading-[0.9] animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-              Predict <br className="hidden sm:block" />
+            <h1 className="mt-6 text-5xl font-black tracking-tight md:text-6xl lg:text-7xl leading-[0.9] animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+              Predict <br />
               <span className="text-[#41B6E6]">the Gap.</span>
             </h1>
 
-            <p className="mt-6 mx-auto lg:mx-0 max-w-xl text-base text-white/80 md:text-lg leading-relaxed font-medium animate-fade-in-up" style={{ animationDelay: '500ms' }}>
-              ClearSlot uses cutting-edge machine learning to reclaim clinical time and optimize NHS outpatient capacity in real-time.
+            <p className="mt-6 max-w-xl text-base text-white/80 md:text-lg leading-relaxed font-medium animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+              ClearSlot uses cutting edge machine learning to reclaim clinical time and optimize NHS outpatient capacity in real-time.
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '700ms' }}>
-              <Button asChild variant="default" size="lg" className="h-12 px-8 text-base font-bold rounded-xl shadow-2xl shadow-blue-900/50 hover:scale-105 transition-transform" aria-label="View dashboard">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row animate-fade-in-up" style={{ animationDelay: '700ms' }}>
+              <Button asChild variant="default" size="lg" className="h-12 px-6 text-base font-bold rounded-xl shadow-2xl shadow-blue-900/50 hover:scale-105 transition-transform" aria-label="View dashboard">
                 <Link href="/dashboard">View Dashboard</Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 size="lg"
-                className="h-12 px-8 text-base font-bold rounded-xl border-white/20 text-white hover:bg-white/10 backdrop-blur-xl transition-all hover:scale-105"
+                className="h-12 px-6 text-base font-bold rounded-xl border-white/20 text-white hover:bg-white/10 backdrop-blur-xl transition-all hover:scale-105"
                 aria-label="See how it works"
               >
                 <a href="#how-it-works">Watch the Demo</a>
               </Button>
             </div>
 
-            <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 animate-fade-in-up max-w-sm mx-auto lg:mx-0" style={{ animationDelay: '900ms' }}>
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-3 sm:p-4 backdrop-blur-xl">
-                <div className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.3em] text-[#41B6E6]">Annual Target</div>
-                <div className="mt-1 text-xl sm:text-2xl font-black">
+            <div className="mt-10 grid grid-cols-2 gap-6 animate-fade-in-up" style={{ animationDelay: '900ms' }}>
+              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl">
+                <div className="text-[9px] font-black uppercase tracking-[0.3em] text-[#41B6E6]">Annual Target</div>
+                <div className="mt-1 text-2xl font-black">
                   <AnimatedCounter value={15} suffix="M" />
                 </div>
-                <div className="mt-0.5 text-[8px] sm:text-[9px] text-white/40 font-bold uppercase tracking-widest">Slots Recovered</div>
+                <div className="mt-0.5 text-[9px] text-white/40 font-bold uppercase tracking-widest">Slots Recovered</div>
               </div>
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-3 sm:p-4 backdrop-blur-xl">
-                <div className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.3em] text-[#41B6E6]">Est. Efficiency</div>
-                <div className="mt-1 text-xl sm:text-2xl font-black">
+              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl">
+                <div className="text-[9px] font-black uppercase tracking-[0.3em] text-[#41B6E6]">Est. Efficiency</div>
+                <div className="mt-1 text-2xl font-black">
                   <AnimatedCounter value={68} suffix="%" />
                 </div>
-                <div className="mt-0.5 text-[8px] sm:text-[9px] text-white/40 font-bold uppercase tracking-widest">Backfill Rate</div>
+                <div className="mt-0.5 text-[9px] text-white/40 font-bold uppercase tracking-widest">Backfill Rate</div>
               </div>
             </div>
           </div>
 
-          <div className="relative flex items-center justify-center animate-fade-in-up mt-8 lg:mt-0" style={{ animationDelay: '400ms' }}>
+          <div className="relative flex items-center justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
             <Hero3DCard>
-              <div className="w-full max-w-[280px] sm:max-w-sm rounded-2xl bg-white/10 p-4 sm:p-5 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.5)] backdrop-blur-[50px] border border-white/20 relative group transition-all duration-500">
+              <div className="w-full max-w-sm rounded-2xl bg-white/10 p-5 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.5)] backdrop-blur-[50px] border border-white/20 relative group transition-all duration-500">
                 {/* INTERACTIVE GLOW */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#41B6E6] to-[#005EB8] rounded-[3.5rem] blur opacity-10 group-hover:opacity-30 transition-opacity" />
 
                 <div className="relative flex flex-col h-full">
                   <div className="flex items-center justify-between">
-                    <div className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.4em] text-white/40">Live Intelligence</div>
+                    <div className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40">Live Intelligence</div>
                     <div className="flex gap-2">
                       <div className="h-1 w-1 rounded-full bg-[#41B6E6] animate-pulse" />
                     </div>
                   </div>
 
-                  <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4">
+                  <div className="mt-6 grid grid-cols-2 gap-4">
                     {[
                       { label: "High Risk", val: "23", color: "text-red-400" },
                       { label: "Recovered", val: "47", color: "text-emerald-400" },
                       { label: "DNA Rate", val: "4.2%", color: "text-white" },
                       { label: "Daily Savings", val: "£18k", color: "text-[#41B6E6]" },
                     ].map((item) => (
-                      <div key={item.label} className="rounded-[0.8rem] sm:rounded-[1rem] bg-white/5 p-3 sm:p-4 border border-white/5 hover:bg-white/10 transition-all">
-                        <div className="text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-white/30">{item.label}</div>
-                        <div className={cn("mt-1 sm:mt-2 text-xl sm:text-2xl font-black tracking-tighter", item.color)}>{item.val}</div>
+                      <div key={item.label} className="rounded-[1rem] bg-white/5 p-4 border border-white/5 hover:bg-white/10 transition-all">
+                        <div className="text-[9px] font-black uppercase tracking-widest text-white/30">{item.label}</div>
+                        <div className={cn("mt-2 text-2xl font-black tracking-tighter", item.color)}>{item.val}</div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-6 p-3 sm:p-4 rounded-[0.8rem] sm:rounded-[1rem] bg-white/5 border border-white/5">
-                    <div className="flex items-center justify-between text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-white/30">
+                  <div className="mt-6 p-4 rounded-[1rem] bg-white/5 border border-white/5">
+                    <div className="flex items-center justify-between text-[9px] font-black uppercase tracking-widest text-white/30">
                       <span>Governance Protocols</span>
                     </div>
-                    <div className="mt-3 flex flex-wrap gap-2">
+                    <div className="mt-3 flex gap-2">
                       {['DSPT', 'GDPR', 'DCB0129'].map(t => (
-                        <div key={t} className="px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-[7px] sm:text-[8px] font-black">{t}</div>
+                        <div key={t} className="px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-[8px] font-black">{t}</div>
                       ))}
                     </div>
                   </div>
@@ -125,21 +124,26 @@ export default function Home() {
       </section>
 
       <section className="bg-[hsl(var(--background))]">
-        <div className="mx-auto max-w-6xl px-4 py-8">
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
+        <div className="mx-auto max-w-6xl px-4 py-6">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
             {[
-              { big: "15M", label: "missed appointments" },
-              { big: "£1.9B", label: "annual cost" },
-              { big: "1.2M", label: "GP hours wasted" },
-              { big: "6.4%", label: "DNA rate" },
+              { big: "15M", label: "missed NHS appointments/year" },
+              { big: "£1.9B", label: "annual cost of DNAs" },
+              { big: "1.2M", label: "GP hours wasted annually" },
+              { big: "6.4%", label: "average outpatient DNA rate" },
             ].map((s) => (
-              <Card key={s.label} className="border-none shadow-none bg-transparent">
-                <CardHeader className="p-3 sm:p-6 text-center md:text-left">
-                  <CardTitle className="text-xl sm:text-2xl font-extrabold text-[#003087] dark:text-[#7fb6ff]">
+              <Card key={s.label}>
+                <CardHeader>
+                  <CardTitle className="text-2xl font-extrabold text-[#003087] dark:text-[#7fb6ff]">
                     {s.big}
                   </CardTitle>
-                  <CardDescription className="text-[10px] sm:text-sm font-medium">{s.label}</CardDescription>
+                  <CardDescription className="text-sm">{s.label}</CardDescription>
                 </CardHeader>
+                <CardContent className="pt-2">
+                  <div className="text-xs text-[hsl(var(--muted-foreground))]">
+                    Source: NHS England
+                  </div>
+                </CardContent>
               </Card>
             ))}
           </div>
@@ -244,19 +248,18 @@ export default function Home() {
       </section>
 
       {/* FOOTER CTA */}
-      <section className="bg-[#003087] text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-        <div className="mx-auto flex max-w-6xl flex-col items-center text-center lg:text-left lg:items-start lg:flex-row justify-between gap-8 px-4 py-16 relative z-10">
+      <section className="bg-[#003087] text-white">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-4 py-14 md:flex-row md:items-center">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-black">
+            <div className="text-2xl font-extrabold">
               Ready to reduce missed appointments?
-            </h2>
-            <p className="mt-2 text-sm sm:text-base text-white/70 max-w-xl">
-              Explore the dashboard and see the intelligence layer in action. Join leading Trusts in reclaiming clinical capacity.
-            </p>
+            </div>
+            <div className="mt-1 text-sm text-white/80">
+              Explore the dashboard and see the intelligence layer in action.
+            </div>
           </div>
-          <Button asChild size="lg" variant="default" className="bg-white text-[#003087] hover:bg-white/90 h-14 px-10 text-lg font-bold rounded-xl shadow-xl transition-all hover:scale-105 shrink-0" aria-label="Explore dashboard">
-            <Link href="/dashboard">Explore Dashboard</Link>
+          <Button asChild size="lg" variant="default" aria-label="Explore dashboard">
+            <Link href="/dashboard">Explore the Dashboard</Link>
           </Button>
         </div>
       </section>

@@ -9,6 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         nhs: {
           navy: "#003087",
           blue: "#005EB8",
@@ -18,6 +20,10 @@ const config: Config = {
           red: "#DA291C",
           grey: "#F0F4F5",
         },
+      },
+      fontFamily: {
+        sans: ["var(--font-geist-sans)"],
+        mono: ["var(--font-geist-mono)"],
       },
     },
   },
