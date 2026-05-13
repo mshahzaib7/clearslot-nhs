@@ -1,26 +1,147 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --radius: 12px;
+
+  /* shadcn-compatible tokens */
+  --background: 195 20% 95%; /* NHS Light Grey */
+  --foreground: 222 40% 12%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 40% 12%;
+
+  --muted: 210 18% 92%;
+  --muted-foreground: 215 12% 36%;
+
+  --border: 210 18% 85%;
+  --input: 210 18% 85%;
+  --ring: 214 89% 52%; /* NHS Blue-ish */
+
+  --primary: 215 100% 26%; /* NHS Navy */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 214 89% 41%; /* NHS Blue */
+  --secondary-foreground: 0 0% 100%;
+
+  --accent: 197 72% 58%; /* NHS Light Blue */
+  --accent-foreground: 222 40% 12%;
+
+  --destructive: 6 73% 47%; /* NHS Red */
+  --destructive-foreground: 0 0% 100%;
+}
+
+.dark {
+  /* darker canvas, lighter NHS navy in dark mode */
+  --background: 222 25% 10%;
+  --foreground: 210 40% 96%;
+
+  --card: 222 22% 13%;
+  --card-foreground: 210 40% 96%;
+
+  --muted: 222 16% 18%;
+  --muted-foreground: 215 18% 70%;
+
+  --border: 222 14% 22%;
+  --input: 222 14% 22%;
+  --ring: 197 72% 58%;
+
+  --primary: 214 89% 60%;
+  --primary-foreground: 222 25% 10%;
+
+  --secondary: 215 100% 40%;
+  --secondary-foreground: 222 25% 10%;
+
+  --accent: 197 72% 58%;
+  --accent-foreground: 222 25% 10%;
+
+  --destructive: 6 73% 52%;
+  --destructive-foreground: 0 0% 100%;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: hsl(var(--border));
+}
+
+html,
+body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+@layer utilities {
+  .animate-reveal {
+    animation: reveal 0.8s cubic-bezier(0, 0, 0.2, 1) forwards;
+  }
+  .animate-fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0, 0, 0.2, 1) forwards;
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+.animate-float-slow {
+  animation: float-slow 15s ease-in-out infinite;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
 }
