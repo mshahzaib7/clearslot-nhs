@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* HERO */}
-      <section className="relative min-h-[800px] overflow-hidden bg-[#003087] text-white flex items-center">
+      <section className="relative min-h-[450px] overflow-hidden bg-[#003087] text-white flex items-center">
         {/* 3D BACKGROUND LAYERS */}
         <div className="absolute inset-0 bg-grid-pattern opacity-10 [mask-image:radial-gradient(ellipse_at_center,black,transparent)]" />
         <div className="absolute inset-0 bg-dot-pattern opacity-20" />
@@ -19,7 +19,7 @@ export default function Home() {
         <div className="absolute top-[-10%] left-[-5%] h-[600px] w-[600px] rounded-full bg-[#005EB8] opacity-30 blur-[120px] animate-float-slow" />
         <div className="absolute bottom-[-10%] right-[-5%] h-[700px] w-[700px] rounded-full bg-[#41B6E6] opacity-20 blur-[150px] animate-float-slow" style={{ animationDelay: '-5s' }} />
 
-        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-24 px-4 py-32 lg:grid-cols-2 lg:gap-32 lg:py-40">
+        <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-8 lg:grid-cols-2 lg:gap-12 lg:py-12">
           <div className="flex flex-col justify-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             <div className="flex items-center gap-4">
               <div className="flex h-10 w-24 items-center justify-center rounded-xl bg-white p-2 shadow-lg shadow-black/20">
@@ -36,83 +36,83 @@ export default function Home() {
               </span>
             </div>
 
-            <h1 className="mt-10 text-6xl font-black tracking-tight md:text-7xl lg:text-8xl leading-[0.9] animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+            <h1 className="mt-6 text-4xl font-black tracking-tight md:text-5xl lg:text-6xl leading-[0.9] animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               Predict <br />
               <span className="text-[#41B6E6]">the Gap.</span>
             </h1>
 
-            <p className="mt-10 max-w-xl text-xl text-white/80 md:text-2xl leading-relaxed font-medium animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+            <p className="mt-6 max-w-xl text-base text-white/80 md:text-lg leading-relaxed font-medium animate-fade-in-up" style={{ animationDelay: '500ms' }}>
               ClearSlot uses cutting-edge machine learning to reclaim clinical time and optimize NHS outpatient capacity in real-time.
             </p>
 
-            <div className="mt-16 flex flex-col gap-6 sm:flex-row animate-fade-in-up" style={{ animationDelay: '700ms' }}>
-              <Button asChild variant="default" size="lg" className="h-16 px-10 text-xl font-bold rounded-2xl shadow-2xl shadow-blue-900/50 hover:scale-105 transition-transform" aria-label="View dashboard">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row animate-fade-in-up" style={{ animationDelay: '700ms' }}>
+              <Button asChild variant="default" size="lg" className="h-12 px-6 text-base font-bold rounded-xl shadow-2xl shadow-blue-900/50 hover:scale-105 transition-transform" aria-label="View dashboard">
                 <Link href="/dashboard">View Dashboard</Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 size="lg"
-                className="h-16 px-10 text-xl font-bold rounded-2xl border-white/20 text-white hover:bg-white/10 backdrop-blur-xl transition-all hover:scale-105"
+                className="h-12 px-6 text-base font-bold rounded-xl border-white/20 text-white hover:bg-white/10 backdrop-blur-xl transition-all hover:scale-105"
                 aria-label="See how it works"
               >
                 <a href="#how-it-works">Watch the Demo</a>
               </Button>
             </div>
 
-            <div className="mt-20 grid grid-cols-2 gap-10 animate-fade-in-up" style={{ animationDelay: '900ms' }}>
-              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl">
-                <div className="text-[10px] font-black uppercase tracking-[0.3em] text-[#41B6E6]">Annual Target</div>
-                <div className="mt-3 text-4xl font-black">
+            <div className="mt-10 grid grid-cols-2 gap-6 animate-fade-in-up" style={{ animationDelay: '900ms' }}>
+              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl">
+                <div className="text-[9px] font-black uppercase tracking-[0.3em] text-[#41B6E6]">Annual Target</div>
+                <div className="mt-1 text-2xl font-black">
                   <AnimatedCounter value={15} suffix="M" />
                 </div>
-                <div className="mt-1 text-xs text-white/40 font-bold uppercase tracking-widest">Slots Recovered</div>
+                <div className="mt-0.5 text-[9px] text-white/40 font-bold uppercase tracking-widest">Slots Recovered</div>
               </div>
-              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl">
-                <div className="text-[10px] font-black uppercase tracking-[0.3em] text-[#41B6E6]">Est. Efficiency</div>
-                <div className="mt-3 text-4xl font-black">
+              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl">
+                <div className="text-[9px] font-black uppercase tracking-[0.3em] text-[#41B6E6]">Est. Efficiency</div>
+                <div className="mt-1 text-2xl font-black">
                   <AnimatedCounter value={68} suffix="%" />
                 </div>
-                <div className="mt-1 text-xs text-white/40 font-bold uppercase tracking-widest">Backfill Rate</div>
+                <div className="mt-0.5 text-[9px] text-white/40 font-bold uppercase tracking-widest">Backfill Rate</div>
               </div>
             </div>
           </div>
 
           <div className="relative flex items-center justify-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
             <Hero3DCard>
-              <div className="w-full max-w-xl rounded-[3.5rem] bg-white/10 p-12 shadow-[0_60px_120px_-20px_rgba(0,0,0,0.6)] backdrop-blur-[50px] border border-white/20 relative group transition-all duration-500">
+              <div className="w-full max-w-sm rounded-2xl bg-white/10 p-5 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.5)] backdrop-blur-[50px] border border-white/20 relative group transition-all duration-500">
                 {/* INTERACTIVE GLOW */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#41B6E6] to-[#005EB8] rounded-[3.5rem] blur opacity-10 group-hover:opacity-30 transition-opacity" />
 
                 <div className="relative flex flex-col h-full">
                   <div className="flex items-center justify-between">
-                    <div className="text-xs font-black uppercase tracking-[0.4em] text-white/40">Live Intelligence</div>
+                    <div className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40">Live Intelligence</div>
                     <div className="flex gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-[#41B6E6] animate-pulse" />
+                      <div className="h-1 w-1 rounded-full bg-[#41B6E6] animate-pulse" />
                     </div>
                   </div>
 
-                  <div className="mt-12 grid grid-cols-2 gap-10">
+                  <div className="mt-6 grid grid-cols-2 gap-4">
                     {[
                       { label: "High Risk", val: "23", color: "text-red-400" },
                       { label: "Recovered", val: "47", color: "text-emerald-400" },
                       { label: "DNA Rate", val: "4.2%", color: "text-white" },
                       { label: "Daily Savings", val: "£18k", color: "text-[#41B6E6]" },
                     ].map((item) => (
-                      <div key={item.label} className="rounded-[2.5rem] bg-white/5 p-6 border border-white/5 hover:bg-white/10 transition-all">
-                        <div className="text-[10px] font-black uppercase tracking-widest text-white/30">{item.label}</div>
-                        <div className={cn("mt-4 text-4xl font-black tracking-tighter", item.color)}>{item.val}</div>
+                      <div key={item.label} className="rounded-[1rem] bg-white/5 p-4 border border-white/5 hover:bg-white/10 transition-all">
+                        <div className="text-[9px] font-black uppercase tracking-widest text-white/30">{item.label}</div>
+                        <div className={cn("mt-2 text-2xl font-black tracking-tighter", item.color)}>{item.val}</div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-12 p-7 rounded-[2.5rem] bg-white/5 border border-white/5">
-                    <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-widest text-white/30">
+                  <div className="mt-6 p-4 rounded-[1rem] bg-white/5 border border-white/5">
+                    <div className="flex items-center justify-between text-[9px] font-black uppercase tracking-widest text-white/30">
                       <span>Governance Protocols</span>
                     </div>
-                    <div className="mt-5 flex gap-4">
+                    <div className="mt-3 flex gap-2">
                       {['DSPT', 'GDPR', 'DCB0129'].map(t => (
-                        <div key={t} className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-black">{t}</div>
+                        <div key={t} className="px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-[8px] font-black">{t}</div>
                       ))}
                     </div>
                   </div>
@@ -123,9 +123,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROBLEM STATS */}
       <section className="bg-[hsl(var(--background))]">
-        <div className="mx-auto max-w-6xl px-4 py-10">
+        <div className="mx-auto max-w-6xl px-4 py-6">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
             {[
               { big: "15M", label: "missed NHS appointments/year" },
@@ -153,7 +152,7 @@ export default function Home() {
 
       {/* HOW IT WORKS */}
       <section id="how-it-works" className="bg-white dark:bg-[#0f131a]">
-        <div className="mx-auto max-w-6xl px-4 py-24">
+        <div className="mx-auto max-w-6xl px-4 py-16">
           <div className="max-w-2xl">
             <h2 className="text-3xl font-extrabold tracking-tight text-[#003087] dark:text-[#7fb6ff]">
               How ClearSlot Works
@@ -201,7 +200,7 @@ export default function Home() {
 
       {/* FEATURES */}
       <section className="bg-[hsl(var(--background))] border-y border-[hsl(var(--border))]">
-        <div className="mx-auto max-w-6xl px-4 py-24">
+        <div className="mx-auto max-w-6xl px-4 py-16">
           <h2 className="text-3xl font-extrabold tracking-tight text-[#003087] dark:text-[#7fb6ff]">
             Platform Features
           </h2>
@@ -227,7 +226,7 @@ export default function Home() {
 
       {/* IMPACT */}
       <section className="bg-white dark:bg-[#0f131a]">
-        <div className="mx-auto max-w-6xl px-4 py-24">
+        <div className="mx-auto max-w-6xl px-4 py-16">
           <h2 className="text-3xl font-extrabold tracking-tight text-[#003087] dark:text-[#7fb6ff]">
             Proven Impact
           </h2>

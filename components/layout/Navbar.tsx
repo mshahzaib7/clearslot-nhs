@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Menu, Moon, Sun } from "lucide-react";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
@@ -18,6 +19,7 @@ const navLinks = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const isActive = (href: string) =>
@@ -25,7 +27,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[hsl(var(--border))] bg-white/85 backdrop-blur dark:bg-[#0f131a]/80">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+      <div className="mx-auto flex h-12 max-w-6xl items-center justify-between px-4">
         <Link
           href="/"
           className="flex items-center gap-2 font-bold text-[#003087] dark:text-[#7fb6ff]"

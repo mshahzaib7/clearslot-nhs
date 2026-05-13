@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Code, Link as LinkIcon, ExternalLink, ShieldCheck } from "lucide-react";
+import { Code, Link as LinkIcon, ExternalLink, ShieldCheck, Heart } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
