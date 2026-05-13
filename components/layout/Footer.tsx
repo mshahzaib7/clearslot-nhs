@@ -81,23 +81,21 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-[hsl(var(--border))] pt-8">
-          <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            <div className="text-xs text-[hsl(var(--muted-foreground))]">
-              <span className="font-semibold text-[#003087] dark:text-[#7fb6ff]">Data Sources:</span> NHS England · BMA · GP Patient Survey 2025
+        <div className="mt-12 border-t border-[hsl(var(--border))] pt-8 text-center md:text-left">
+          <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
+            <div className="text-[10px] sm:text-xs text-[hsl(var(--muted-foreground))]">
+              <span className="font-bold text-[#003087] dark:text-[#7fb6ff]">Data Sources:</span> NHS England · BMA · GP Patient Survey 2025
             </div>
             
             <div className="flex flex-col items-center gap-2 md:items-end">
-              <div className="flex items-center gap-1.5 text-sm font-medium">
+              <div className="flex items-center gap-1.5 text-xs sm:text-sm font-medium">
                 <span>Developed by</span>
-                {/* <Heart className="h-3.5 w-3.5 fill-red-500 text-red-500" />
-                <span>by</span> */}
                 <span className="font-bold text-[#003087] dark:text-[#7fb6ff]">Muhammad Shahzaib Khan</span>
               </div>
-              <p className="text-[10px] text-[hsl(var(--muted-foreground))]">
+              <p className="text-[10px] text-[hsl(var(--muted-foreground))] opacity-60">
                 © {currentYear} ClearSlot.
               </p>
-              <p className="max-w-[300px] text-right text-[10px] leading-tight text-[hsl(var(--muted-foreground))]">
+              <p className="max-w-[400px] md:text-right text-[10px] leading-tight text-[hsl(var(--muted-foreground))] opacity-50">
                 Built with publicly available NHS data · For research and demonstration purposes only · Not a regulated medical device
               </p>
             </div>
